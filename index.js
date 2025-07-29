@@ -25,5 +25,13 @@ botaoAdicionar.addEventListener("click", (evento) => {
         itemDaLista.appendChild(containerItemDaLista);
 
         listaDeCompras.appendChild(itemDaLista);
-        inputItem.value = ""; // Limpa o campo de entrada após adicionar o item    
+        inputItem.value = ""; // Limpa o campo de entrada após adicionar o item   
+        
+        const diaDaSemana = new Date().toLocaleDateString('pt-BR', { 
+            weekday: 'long' });
+        const data = new Date().toLocaleDateString('pt-BR');
+
+        const dataCompleta = `${diaDaSemana}, (${data})`;
+
+        console.log(dataCompleta);
 })
