@@ -20,18 +20,37 @@ botaoAdicionar.addEventListener("click", (evento) => {
         const nomeItem = document.createElement("p");
         nomeItem.textContent = inputItem.value;
 
+        inputCheckbox.addEventListener("click", () => {
+            if (inputCheckbox.checked) {
+                itemDaLista.style.textDecoration = "line-through";
+            } else {
+                itemDaLista.style.textDecoration = "none";
+            }
+        });
+
         containerItemDaLista.appendChild(inputCheckbox);
         containerItemDaLista.appendChild(nomeItem);
         itemDaLista.appendChild(containerItemDaLista);
 
-        listaDeCompras.appendChild(itemDaLista);
-        inputItem.value = ""; // Limpa o campo de entrada após adicionar o item   
-        
         const diaDaSemana = new Date().toLocaleDateString('pt-BR', { 
             weekday: 'long' });
         const data = new Date().toLocaleDateString('pt-BR');
+        
+        const hora = new Date().toLocaleTimeString('pt-BR', {
+            hour: 'numeric',
+            minute: 'numeric'
+        });
 
-        const dataCompleta = `${diaDaSemana}, (${data})`;
+        const dataCompleta = `${diaDaSemana}, (${data}) às ${hora}`;//Template String
+        const dataHora = document.createElement("p");
+        dataHora.classList.add("texto-data");
+        dataHora.innerText = dataCompleta;
 
-        console.log(dataCompleta);
+        itemDaLista.appendChild(dataHora);
+
+        listaDeCompras.appendChild(itemDaLista);
+        inputItem.value = ""; // Limpa o campo de entrada após adicionar o item   
+        
+        
+        
 })
