@@ -23,7 +23,7 @@ botaoAdicionar.addEventListener("click", (evento) => {
         inputCheckbox.addEventListener("click", () => {
             if (inputCheckbox.checked) {
                 itemDaLista.style.textDecoration = "line-through";
-            } else {
+            } else {                
                 itemDaLista.style.textDecoration = "none";
             }
         });
@@ -50,7 +50,19 @@ botaoAdicionar.addEventListener("click", (evento) => {
 
         listaDeCompras.appendChild(itemDaLista);
         inputItem.value = ""; // Limpa o campo de entrada após adicionar o item   
-        
-        
-        
+        atualizarMensagemListaVazia();       
 })
+
+
+const mensagemListaVazia = document.querySelector(".mensagem-lista-vazia");
+
+function atualizarMensagemListaVazia() {
+    const itensDaLista = listaDeCompras.querySelectorAll("li");
+    if (itensDaLista.length === 0) {
+        mensagemListaVazia.style.display = "block";
+    }else {
+     mensagemListaVazia.style.display = "none";
+    }
+}
+
+atualizarMensagemListaVazia();
