@@ -1,7 +1,9 @@
  const inputItem = document.getElementById("input-item");
+
+ let contador = 0;
  
  export function criarItemDaLista() {   
-    evento.preventDefault(); 
+     
     if(inputItem.value === "") {
         alert("Por favor, insira um item válido.");
         return;
@@ -14,6 +16,7 @@
         inputCheckbox.id = "checkbox-" + contador++; 
         const nomeItem = document.createElement("p");
         nomeItem.textContent = inputItem.value;
+        inputItem.value = ""; // Limpa o campo de entrada após adicionar o item     
 
         inputCheckbox.addEventListener("click", () => {
             if (inputCheckbox.checked) {
