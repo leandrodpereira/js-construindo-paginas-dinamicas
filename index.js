@@ -1,5 +1,5 @@
 import { criarItemDaLista } from "./scripts/criarItemDaLista.js";
-
+import verificarListaVazia from "./scripts/verificarListaVazia.js";
 
 const listaDeCompras = document.getElementById("lista-de-compras");
 const botaoAdicionar = document.getElementById("adicionar-item");
@@ -11,19 +11,7 @@ botaoAdicionar.addEventListener("click", (evento) => {
     const itemDaLista = criarItemDaLista();
     listaDeCompras.appendChild(itemDaLista);
      // Verificar se a lista está vazia
-    atualizarMensagemListaVazia();       
+    verificarListaVazia(listaDeCompras);       
 })
 
-
-const mensagemListaVazia = document.querySelector(".mensagem-lista-vazia");
-
-function atualizarMensagemListaVazia() {
-    const itensDaLista = listaDeCompras.querySelectorAll("li");
-    if (itensDaLista.length === 0) {
-        mensagemListaVazia.style.display = "block";
-    }else {
-     mensagemListaVazia.style.display = "none";
-    }
-}
-
-atualizarMensagemListaVazia();
+verificarListaVazia(listaDeCompras);// Exemplo de uso da função olaMundo
